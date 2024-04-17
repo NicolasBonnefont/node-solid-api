@@ -4,6 +4,7 @@ COPY package*.json ./
 RUN npm i
 COPY . ./
 RUN printenv > .env
-RUN npm run build && npx prisma generate
+RUN npx prisma generate
+RUN npm run build
 COPY . /app/
 CMD ["npm", "run", "start"]
