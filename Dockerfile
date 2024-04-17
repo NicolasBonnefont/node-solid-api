@@ -1,10 +1,10 @@
 FROM node:20-alpine
 WORKDIR /app
 COPY package*.json ./ 
-RUN npm i
+RUN npm ci
 COPY . ./
 RUN printenv > .env
 RUN npx prisma generate
 RUN npm run build
 COPY . /app/
-CMD ["npm", "run", "start"]
+CMD ["sh", "/app/start.sh"]
