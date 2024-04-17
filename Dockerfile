@@ -4,5 +4,5 @@ COPY package*.json ./
 RUN npm ci
 RUN printenv > .env
 RUN npm run build
-COPY ./build /app/
+COPY . /app/
 CMD ["npm", "run", "start"]
